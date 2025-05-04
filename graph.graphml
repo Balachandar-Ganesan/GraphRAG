@@ -1,0 +1,310 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph edgedefault="undirected">
+    <node id="RAJINIKANTH" />
+    <node id="TAMIL CINEMA" />
+    <node id="GOVERNMENT OF INDIA" />
+    <node id="K. BALACHANDER" />
+    <node id="S. P. MUTHURAMAN" />
+    <node id="BILLA" />
+    <node id="MOONDRU MUGAM" />
+    <node id="ANDHAA KAANOON" />
+    <node id="MANI RATNAM" />
+    <node id="SIVAJI" />
+    <node id="ENTHIRAN" />
+    <node id="JAILER" />
+    <node id="KARNATAKA" />
+    <node id="PADMA BHUSHAN" />
+    <node id="PADMA VIBHUSHAN" />
+    <node id="DADASAHEB PHALKE AWARD" />
+    <node id="NATIONAL FILM AWARD" />
+    <node id="TAMIL NADU STATE FILM AWARDS" />
+    <node id="NANDI AWARD" />
+    <node id="FILMFARE AWARD" />
+    <node id="MAHARASHTRA STATE FILM AWARDS" />
+    <node id="APOORVA RAAGANGAL" />
+    <node id="BHUVANA ORU KELVI KURI" />
+    <node id="THALAPATHI" />
+    <node id="ANNAAMALAI" />
+    <node id="BAASHHA" />
+    <node id="MUTHU" />
+    <node id="PADAYAPPA" />
+    <node id="CHANDRAMUKHI" />
+    <node id="2.0" />
+    <node id="MAVADI KADEPATHAR" />
+    <node id="HANUMANTHA NAGAR" />
+    <node id="GAVIPURAM GOVERNMENT KANNADA MODEL PRIMARY SCHOOL" />
+    <node id="RAMAKRISHNA MATH" />
+    <node id="ACHARYA PATHASALA PUBLIC SCHOOL" />
+    <node id="BANGALORE TRANSPORT SERVICE" />
+    <node id="MADRAS FILM INSTITUTE" />
+    <node id="RAJ BAHADUR" />
+    <node id="SATYANARAYANA RAO" />
+    <node id="NAGESHWARA RAO" />
+    <node id="ASWATH BALUBHAI" />
+    <node id="FILMFARE AWARD FOR BEST ACTOR &#8211; TELUGU" />
+    <node id="BAIRAVI" />
+    <node id="ILAMAI OONJAL AADUKIRATHU" />
+    <node id="MULLUM MALARUM" />
+    <node id="ALLAUDDINUM ALBHUTHA VILAKKUM" />
+    <node id="DHARMA YUDDAM" />
+    <node id="N. T. RAMA RAO" />
+    <node id="PRIYA" />
+    <node id="AARILIRUNTHU ARUBATHU VARAI" />
+    <node id="AMITABH BACHCHAN" />
+    <node id="SRIDEVI" />
+    <node id="SHANKAR SALIM SIMON" />
+    <node id="KILADI KITTU" />
+    <node id="ANNADAMMULA SAVAAL" />
+    <node id="AAYIRAM JENMANGAL" />
+    <node id="MAATHU TAPPADA MAGA" />
+    <node id="VANAKKATUKURIYA KATHALIYE" />
+    <node id="VAYASU PILICHINDI" />
+    <node id="TIGER" />
+    <node id="NINAITHALE INIKKUM" />
+    <node id="AMMA EVARIKKAINA AMMA" />
+    <node id="AMAR AKBAR ANTHONY" />
+    <node id="NAAN VAZHAVAIPPEN" />
+    <node id="RAM ROBERT RAHIM" />
+    <node id="THEE" />
+    <node id="MR. BHARATH" />
+    <node id="JOHNNY" />
+    <node id="S. THANU" />
+    <node id="MAHENDRAN" />
+    <node id="MURATTU KAALAI" />
+    <node id="THILLU MULLU" />
+    <node id="SRI RAGHAVENDRA" />
+    <node id="BLOODSTONE" />
+    <node id="PANAKKARAN" />
+    <node id="HUM" />
+    <node id="SALIM-JAVED" />
+    <node id="DEEWAAR" />
+    <node id="HINDI FILMS" />
+    <node id="MAMMOOTY" />
+    <node id="P. VASU" />
+    <node id="K. S. RAVIKUMAR" />
+    <node id="AAMIR KHAN" />
+    <node id="MOHANLAL" />
+    <node id="MOHAN BABU" />
+    <node id="RAMYA KRISHNAN" />
+    <node id="SOUNDARYA" />
+    <node id="SIVAJI GANESAN" />
+    <node id="MAHAVATAR BABAJI" />
+    <node id="S. RAMADOSS" />
+    <node id="BABA" />
+    <node id="PATTALI MAKKAL KATCHI" />
+    <node id="SHANKAR" />
+    <node id="SOUNDARYA RAJINIKANTH" />
+    <node id="KUSELAN" />
+    <node id="RANA" />
+    <node id="ST. ISABEL'S HOSPITAL" />
+    <node id="SRI RAMACHANDRA MEDICAL COLLEGE AND RESEARCH INSTITUTE" />
+    <node id="MOUNT ELIZABETH HOSPITAL" />
+    <node id="DHANUSH" />
+    <node id="AISHWARYA RAJINIKANTH" />
+    <node id="SATHYANARAYANA RAO GAEKWAD" />
+    <node id="PA. RANJITH" />
+    <node id="KABALI" />
+    <node id="KAALA" />
+    <node id="S. SHANKAR" />
+    <node id="KARTHIK SUBBARAJ" />
+    <node id="PETTA" />
+    <node id="AR MURUGADOSS" />
+    <node id="DARBAR" />
+    <node id="AKSHAY KUMAR" />
+    <node id="AMY JACKSON" />
+    <node id="NAYANTHARA" />
+    <node id="ANNAATTHE" />
+    <node id="VETTAIYAN" />
+    <node id="LAL SALAAM" />
+    <node id="COOLIE" />
+    <node id="JAILER 2" />
+    <node id="DRAVIDA MUNNETRA KAZHAGAM" />
+    <node id="BHARATIYA JANATA PARTY" />
+    <node id="RAJINI MAKKAL MANDRAM" />
+    <node id="SUN PICTURES" />
+    <node id="LOKESH KANAGARAJ" />
+    <node id="NIRMALA" />
+    <node id="LATHA RANGACHARI" />
+    <node id="AISHWARYA" />
+    <node id="RAGHAVENDRA KALYANA MANDAPAM" />
+    <node id="INCOME TAX DEPARTMENT" />
+    <node id="ADYAR FILM INSTITUTE" />
+    <node id="TIRUMALA VENKATESWARA TEMPLE" />
+    <node id="PRASANTHI NILAYAM" />
+    <node id="FOR THE LOVE OF A MAN" />
+    <node id="ETHIRAJ COLLEGE FOR WOMEN" />
+    <node id="NADIGAR SANGAM" />
+    <node id="GOVERNMENT OF KARNATAKA" />
+    <node id="KAVERI RIVER" />
+    <node id="HOGENAKKAL FALLS" />
+    <node id="ATAL BIHARI VAJPAYEE" />
+    <node id="BHARATHI RAJA" />
+    <node id="R. SARATHKUMAR" />
+    <node id="SATHYARAJ" />
+    <node id="RADHA RAVI" />
+    <node id="AJITH KUMAR" />
+    <node id="PERIYAR E. V. RAMASAMY" />
+    <node id="NDTV" />
+    <node id="GOVERNMENT OF MAHARASHTRA" />
+    <node id="VENKAIAH NAIDU" />
+    <node id="NEW DELHI" />
+    <node id="67TH NATIONAL FILM AWARDS" />
+    <node id="FORBES INDIA" />
+    <node id="P. CHIDAMBARAM" />
+    <edge source="RAJINIKANTH" target="TAMIL CINEMA" />
+    <edge source="RAJINIKANTH" target="GOVERNMENT OF INDIA" />
+    <edge source="RAJINIKANTH" target="K. BALACHANDER" />
+    <edge source="RAJINIKANTH" target="S. P. MUTHURAMAN" />
+    <edge source="RAJINIKANTH" target="BILLA" />
+    <edge source="RAJINIKANTH" target="MOONDRU MUGAM" />
+    <edge source="RAJINIKANTH" target="ANDHAA KAANOON" />
+    <edge source="RAJINIKANTH" target="MANI RATNAM" />
+    <edge source="RAJINIKANTH" target="SIVAJI" />
+    <edge source="RAJINIKANTH" target="ENTHIRAN" />
+    <edge source="RAJINIKANTH" target="JAILER" />
+    <edge source="RAJINIKANTH" target="KARNATAKA" />
+    <edge source="RAJINIKANTH" target="PADMA BHUSHAN" />
+    <edge source="RAJINIKANTH" target="PADMA VIBHUSHAN" />
+    <edge source="RAJINIKANTH" target="DADASAHEB PHALKE AWARD" />
+    <edge source="RAJINIKANTH" target="NATIONAL FILM AWARD" />
+    <edge source="RAJINIKANTH" target="TAMIL NADU STATE FILM AWARDS" />
+    <edge source="RAJINIKANTH" target="NANDI AWARD" />
+    <edge source="RAJINIKANTH" target="FILMFARE AWARD" />
+    <edge source="RAJINIKANTH" target="MAHARASHTRA STATE FILM AWARDS" />
+    <edge source="RAJINIKANTH" target="APOORVA RAAGANGAL" />
+    <edge source="RAJINIKANTH" target="BHUVANA ORU KELVI KURI" />
+    <edge source="RAJINIKANTH" target="THALAPATHI" />
+    <edge source="RAJINIKANTH" target="ANNAAMALAI" />
+    <edge source="RAJINIKANTH" target="BAASHHA" />
+    <edge source="RAJINIKANTH" target="MUTHU" />
+    <edge source="RAJINIKANTH" target="PADAYAPPA" />
+    <edge source="RAJINIKANTH" target="CHANDRAMUKHI" />
+    <edge source="RAJINIKANTH" target="2.0" />
+    <edge source="RAJINIKANTH" target="MAVADI KADEPATHAR" />
+    <edge source="RAJINIKANTH" target="HANUMANTHA NAGAR" />
+    <edge source="RAJINIKANTH" target="GAVIPURAM GOVERNMENT KANNADA MODEL PRIMARY SCHOOL" />
+    <edge source="RAJINIKANTH" target="RAMAKRISHNA MATH" />
+    <edge source="RAJINIKANTH" target="ACHARYA PATHASALA PUBLIC SCHOOL" />
+    <edge source="RAJINIKANTH" target="BANGALORE TRANSPORT SERVICE" />
+    <edge source="RAJINIKANTH" target="MADRAS FILM INSTITUTE" />
+    <edge source="RAJINIKANTH" target="RAJ BAHADUR" />
+    <edge source="RAJINIKANTH" target="SATYANARAYANA RAO" />
+    <edge source="RAJINIKANTH" target="NAGESHWARA RAO" />
+    <edge source="RAJINIKANTH" target="ASWATH BALUBHAI" />
+    <edge source="RAJINIKANTH" target="FILMFARE AWARD FOR BEST ACTOR &#8211; TELUGU" />
+    <edge source="RAJINIKANTH" target="BAIRAVI" />
+    <edge source="RAJINIKANTH" target="ILAMAI OONJAL AADUKIRATHU" />
+    <edge source="RAJINIKANTH" target="MULLUM MALARUM" />
+    <edge source="RAJINIKANTH" target="ALLAUDDINUM ALBHUTHA VILAKKUM" />
+    <edge source="RAJINIKANTH" target="DHARMA YUDDAM" />
+    <edge source="RAJINIKANTH" target="N. T. RAMA RAO" />
+    <edge source="RAJINIKANTH" target="PRIYA" />
+    <edge source="RAJINIKANTH" target="AARILIRUNTHU ARUBATHU VARAI" />
+    <edge source="RAJINIKANTH" target="AMITABH BACHCHAN" />
+    <edge source="RAJINIKANTH" target="SRIDEVI" />
+    <edge source="RAJINIKANTH" target="SHANKAR SALIM SIMON" />
+    <edge source="RAJINIKANTH" target="KILADI KITTU" />
+    <edge source="RAJINIKANTH" target="ANNADAMMULA SAVAAL" />
+    <edge source="RAJINIKANTH" target="AAYIRAM JENMANGAL" />
+    <edge source="RAJINIKANTH" target="MAATHU TAPPADA MAGA" />
+    <edge source="RAJINIKANTH" target="VANAKKATUKURIYA KATHALIYE" />
+    <edge source="RAJINIKANTH" target="VAYASU PILICHINDI" />
+    <edge source="RAJINIKANTH" target="TIGER" />
+    <edge source="RAJINIKANTH" target="NINAITHALE INIKKUM" />
+    <edge source="RAJINIKANTH" target="AMMA EVARIKKAINA AMMA" />
+    <edge source="RAJINIKANTH" target="AMAR AKBAR ANTHONY" />
+    <edge source="RAJINIKANTH" target="NAAN VAZHAVAIPPEN" />
+    <edge source="RAJINIKANTH" target="RAM ROBERT RAHIM" />
+    <edge source="RAJINIKANTH" target="THEE" />
+    <edge source="RAJINIKANTH" target="MR. BHARATH" />
+    <edge source="RAJINIKANTH" target="JOHNNY" />
+    <edge source="RAJINIKANTH" target="MURATTU KAALAI" />
+    <edge source="RAJINIKANTH" target="THILLU MULLU" />
+    <edge source="RAJINIKANTH" target="SRI RAGHAVENDRA" />
+    <edge source="RAJINIKANTH" target="BLOODSTONE" />
+    <edge source="RAJINIKANTH" target="PANAKKARAN" />
+    <edge source="RAJINIKANTH" target="HUM" />
+    <edge source="RAJINIKANTH" target="SALIM-JAVED" />
+    <edge source="RAJINIKANTH" target="DEEWAAR" />
+    <edge source="RAJINIKANTH" target="HINDI FILMS" />
+    <edge source="RAJINIKANTH" target="MAMMOOTY" />
+    <edge source="RAJINIKANTH" target="P. VASU" />
+    <edge source="RAJINIKANTH" target="K. S. RAVIKUMAR" />
+    <edge source="RAJINIKANTH" target="AAMIR KHAN" />
+    <edge source="RAJINIKANTH" target="MOHANLAL" />
+    <edge source="RAJINIKANTH" target="MOHAN BABU" />
+    <edge source="RAJINIKANTH" target="RAMYA KRISHNAN" />
+    <edge source="RAJINIKANTH" target="SOUNDARYA" />
+    <edge source="RAJINIKANTH" target="SIVAJI GANESAN" />
+    <edge source="RAJINIKANTH" target="MAHAVATAR BABAJI" />
+    <edge source="RAJINIKANTH" target="S. RAMADOSS" />
+    <edge source="RAJINIKANTH" target="BABA" />
+    <edge source="RAJINIKANTH" target="SOUNDARYA RAJINIKANTH" />
+    <edge source="RAJINIKANTH" target="KUSELAN" />
+    <edge source="RAJINIKANTH" target="RANA" />
+    <edge source="RAJINIKANTH" target="ST. ISABEL'S HOSPITAL" />
+    <edge source="RAJINIKANTH" target="SRI RAMACHANDRA MEDICAL COLLEGE AND RESEARCH INSTITUTE" />
+    <edge source="RAJINIKANTH" target="MOUNT ELIZABETH HOSPITAL" />
+    <edge source="RAJINIKANTH" target="DHANUSH" />
+    <edge source="RAJINIKANTH" target="AISHWARYA RAJINIKANTH" />
+    <edge source="RAJINIKANTH" target="SATHYANARAYANA RAO GAEKWAD" />
+    <edge source="RAJINIKANTH" target="S. THANU" />
+    <edge source="RAJINIKANTH" target="PA. RANJITH" />
+    <edge source="RAJINIKANTH" target="KABALI" />
+    <edge source="RAJINIKANTH" target="KAALA" />
+    <edge source="RAJINIKANTH" target="S. SHANKAR" />
+    <edge source="RAJINIKANTH" target="KARTHIK SUBBARAJ" />
+    <edge source="RAJINIKANTH" target="PETTA" />
+    <edge source="RAJINIKANTH" target="AR MURUGADOSS" />
+    <edge source="RAJINIKANTH" target="DARBAR" />
+    <edge source="RAJINIKANTH" target="ANNAATTHE" />
+    <edge source="RAJINIKANTH" target="VETTAIYAN" />
+    <edge source="RAJINIKANTH" target="LAL SALAAM" />
+    <edge source="RAJINIKANTH" target="COOLIE" />
+    <edge source="RAJINIKANTH" target="JAILER 2" />
+    <edge source="RAJINIKANTH" target="DRAVIDA MUNNETRA KAZHAGAM" />
+    <edge source="RAJINIKANTH" target="BHARATIYA JANATA PARTY" />
+    <edge source="RAJINIKANTH" target="RAJINI MAKKAL MANDRAM" />
+    <edge source="RAJINIKANTH" target="SUN PICTURES" />
+    <edge source="RAJINIKANTH" target="NIRMALA" />
+    <edge source="RAJINIKANTH" target="LATHA RANGACHARI" />
+    <edge source="RAJINIKANTH" target="AISHWARYA" />
+    <edge source="RAJINIKANTH" target="RAGHAVENDRA KALYANA MANDAPAM" />
+    <edge source="RAJINIKANTH" target="INCOME TAX DEPARTMENT" />
+    <edge source="RAJINIKANTH" target="ADYAR FILM INSTITUTE" />
+    <edge source="RAJINIKANTH" target="TIRUMALA VENKATESWARA TEMPLE" />
+    <edge source="RAJINIKANTH" target="PRASANTHI NILAYAM" />
+    <edge source="RAJINIKANTH" target="FOR THE LOVE OF A MAN" />
+    <edge source="RAJINIKANTH" target="NADIGAR SANGAM" />
+    <edge source="RAJINIKANTH" target="GOVERNMENT OF KARNATAKA" />
+    <edge source="RAJINIKANTH" target="KAVERI RIVER" />
+    <edge source="RAJINIKANTH" target="HOGENAKKAL FALLS" />
+    <edge source="RAJINIKANTH" target="ATAL BIHARI VAJPAYEE" />
+    <edge source="RAJINIKANTH" target="BHARATHI RAJA" />
+    <edge source="RAJINIKANTH" target="R. SARATHKUMAR" />
+    <edge source="RAJINIKANTH" target="SATHYARAJ" />
+    <edge source="RAJINIKANTH" target="RADHA RAVI" />
+    <edge source="RAJINIKANTH" target="AJITH KUMAR" />
+    <edge source="RAJINIKANTH" target="PERIYAR E. V. RAMASAMY" />
+    <edge source="RAJINIKANTH" target="NDTV" />
+    <edge source="RAJINIKANTH" target="GOVERNMENT OF MAHARASHTRA" />
+    <edge source="RAJINIKANTH" target="VENKAIAH NAIDU" />
+    <edge source="RAJINIKANTH" target="FORBES INDIA" />
+    <edge source="RAJINIKANTH" target="P. CHIDAMBARAM" />
+    <edge source="SIVAJI" target="SHANKAR" />
+    <edge source="ENTHIRAN" target="SHANKAR" />
+    <edge source="DADASAHEB PHALKE AWARD" target="NEW DELHI" />
+    <edge source="CHANDRAMUKHI" target="P. VASU" />
+    <edge source="2.0" target="AKSHAY KUMAR" />
+    <edge source="2.0" target="AMY JACKSON" />
+    <edge source="BAIRAVI" target="S. THANU" />
+    <edge source="MULLUM MALARUM" target="MAHENDRAN" />
+    <edge source="P. VASU" target="KUSELAN" />
+    <edge source="K. S. RAVIKUMAR" target="RANA" />
+    <edge source="BABA" target="PATTALI MAKKAL KATCHI" />
+    <edge source="DARBAR" target="NAYANTHARA" />
+    <edge source="SUN PICTURES" target="LOKESH KANAGARAJ" />
+    <edge source="LATHA RANGACHARI" target="ETHIRAJ COLLEGE FOR WOMEN" />
+    <edge source="NEW DELHI" target="67TH NATIONAL FILM AWARDS" />
+  </graph>
+</graphml>
