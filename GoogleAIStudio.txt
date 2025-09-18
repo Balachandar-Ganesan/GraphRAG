@@ -1,0 +1,484 @@
+Question 1: Write Code i Python to implement XORShift algorithm in a way I can explain Easily
+
+Question 1 Response:
+
+def xorshift(seed, max_value=2**32 - 1):
+    """
+    Implements a simple Xorshift pseudo-random number generator.
+
+    Xorshift generators work by repeatedly applying XOR (exclusive OR) and
+    bit-shift operations to a seed value. This creates a sequence of
+    numbers that appear random.
+
+    This particular implementation uses a common set of shifts for a 32-bit
+    integer, but the principles can be applied to different bit lengths.
+
+    Args:
+        seed (int): The initial number to start the sequence.
+                    Must be a non-zero integer.
+        max_value (int): The maximum possible value for the generated numbers.
+                         Defaults to 2^32 - 1 (a common range for 32-bit PRNGs).
+
+    Returns:
+        function: A "generator" function that, when called, yields the next
+                  pseudo-random number in the sequence.
+    """
+
+    if not isinstance(seed, int) or seed == 0:
+        raise ValueError("Seed must be a non-zero integer.")
+    if not isinstance(max_value, int) or max_value <= 0:
+        raise ValueError("max_value must be a positive integer.")
+
+    # We use a mutable list to hold the state (seed) so that the
+    # inner generator function can modify it.
+    state = [seed & max_value] # Ensure seed fits within max_value range
+
+    def get_next_random():
+        """
+        Generates the next pseudo-random number using the Xorshift algorithm.
+        """
+        # The core Xorshift operations:
+        # 1. Shift left by 13 bits and XOR with the current state
+        state[0] ^= (state[0] << 13) & max_value
+        # 2. Shift right by 17 bits and XOR with the current state
+        state[0] ^= (state[0] >> 17) & max_value
+        # 3. Shift left by 5 bits and XOR with the current state
+        state[0] ^= (state[0] << 5) & max_value
+
+        # Ensure the result stays within the desired range
+        return state[0]
+
+    return get_next_random
+
+# --- How to explain it easily ---
+
+"""
+Imagine you have a number, let's call it our 'secret number' (the seed).
+We want to create a long sequence of other numbers that look random,
+but are actually generated in a predictable way from our secret number.
+
+Xorshift is like a recipe with three main steps that we repeat over and over:
+
+1.  **"Stirring to the Left" (Shift Left and XOR):**
+    We take our secret number and make a copy of it, pushing all its digits
+    (bits) to the left, and letting new zeros come in on the right.
+    Then, we mix this "left-shifted" copy with our original secret number
+    using a special kind of addition called "XOR". XOR is like this:
+    If two digits are the same (both 0 or both 1), the result is 0.
+    If they are different (one 0 and one 1), the result is 1.
+    This step changes our secret number.
+
+2.  **"Stirring to the Right" (Shift Right and XOR):**
+    Now we take our *new* secret number and make another copy, pushing all its
+    digits to the right. New zeros come in on the left.
+    We mix this "right-shifted" copy with our secret number using XOR again.
+    Our secret number changes once more!
+
+3.  **"Another Stir to the Left" (Shift Left and XOR):**
+    We do one more "stir to the left" with a different amount, just to make
+    the mixing even better. Again, XORing the shifted copy with our current
+    secret number.
+
+After these three steps, the number we end up with *is* our new "random" number
+for this turn, and it also becomes the *new* secret number for the next turn.
+We then repeat these three steps with this new secret number to get the next
+"random" number, and so on.
+
+Each time we go through these steps, we get a new number that seems unrelated
+to the last one, even though it's all based on simple shifting and XORing.
+The `max_value` just makes sure our numbers stay within a certain size,
+like making sure our "secret number" doesn't get too big to handle.
+"""
+
+# --- Example Usage ---
+if __name__ == "__main__":
+    # Initialize the generator with a seed (must be non-zero)
+    my_xorshift_generator = xorshift(seed=12345)
+
+    print("Generating 10 pseudo-random numbers:")
+    for _ in range(10):
+        print(my_xorshift_generator())
+
+    print("\nLet's try a different seed:")
+    another_generator = xorshift(seed=98765)
+    for _ in range(5):
+        print(another_generator())
+
+    print("\nNotice that if we use the same seed, we get the same sequence:")
+    same_seed_generator = xorshift(seed=12345)
+    for _ in range(3):
+        print(same_seed_generator())
+
+    print("\nVisualizing the effect of the shifts (conceptual):")
+    # This is a conceptual visualization for explanation, not part of the PRNG itself.
+    initial_num = 0b10110011 # A small binary number for illustration
+    print(f"Initial: {bin(initial_num)}")
+
+    # Shift left by 2 (conceptual)
+    shifted_left = initial_num << 2
+    print(f"Shifted Left by 2: {bin(shifted_left)}")
+    print(f"XOR with initial: {bin(initial_num ^ shifted_left)}")
+
+    # Shift right by 2 (conceptual)
+    shifted_right = initial_num >> 2
+    print(f"Shifted Right by 2: {bin(shifted_right)}")
+    print(f"XOR with initial: {bin(initial_num ^ shifted_right)}")
+
+    print("\nVisual representation of a single Xorshift step:")
+    # A single step visualization (highly simplified for conceptual understanding)
+    print("Imagine our current 'secret number' looks like this in binary:")
+    initial_binary = "01101010110010101111000010101101" # 32 bits
+    print(f"Current state: {initial_binary} (decimal: {int(initial_binary, 2)})")
+
+    print("\nStep 1: Shift Left (e.g., by 13) and XOR")
+    print("  Original:  01101010110010101111000010101101")
+    print("  Shifted L: 01011001010111100001010110100000 (bits moved left, zeros filled in)")
+    print("  XOR Result: 00110011101101101110010100000101 (new mixed pattern)")
+
+    print("\nStep 2: Shift Right (e.g., by 17) and XOR with the new state")
+    print("  Original:  00110011101101101110010100000101")
+    print("  Shifted R: 00000000000000000011001110110110 (bits moved right, zeros filled in)")
+    print("  XOR Result: 00110011101101101101011010110011 (another new mixed pattern)")
+
+    print("\nStep 3: Shift Left (e.g., by 5) and XOR with the newest state")
+    print("  Original:  00110011101101101101011010110011")
+    print("  Shifted L: 10011101101101101011010110011000 (bits moved left, zeros filled in)")
+    print("  XOR Result: 10101110000000000110001100101011 (final mixed pattern for this step)")
+    print("This final pattern is the 'random' number generated for this round.")
+    print("It also becomes the starting 'secret number' for the next round.")
+
+    print("\nThis process ensures that the numbers are thoroughly 'scrambled' in a deterministic way, making them appear random.")
+    print("Here's a visual of some shifting on a simple binary number:")
+    # Conceptual image of a binary number shifting
+    # This is a great place to add a visual explanation!
+
+
+
+Question 2: Write Code in SQL to pick random records from a table called Employee . Provide answers that can work in MySQL and also one for SQL server
+Question 2 Response:
+
+SELECT *
+FROM Employee
+ORDER BY RAND()
+LIMIT 1;
+
+ORDER BY RAND(): This is a MySQL-specific function that generates a random floating-point number for each row between 0 and 1. Ordering by this random number effectively shuffles the entire table.
+LIMIT 1: After shuffling, LIMIT 1 simply picks the first record from the now-randomized order.
+
+SELECT TOP 1 *
+FROM Employee
+ORDER BY NEWID();
+
+SELECT TOP 1 *: This is SQL Server's way of saying "return only the first N records." Here, we want just one.
+ORDER BY NEWID(): NEWID() generates a unique GUID (Globally Unique Identifier) for each row. Ordering by these unique, randomly generated GUIDs shuffles the table.
+
+SELECT *
+FROM Employee
+ORDER BY RAND()
+LIMIT 5; -- Change 5 to the number of random records you want
+
+
+SELECT TOP 5 * -- Change 5 to the number of random records you want
+FROM Employee
+ORDER BY NEWID();
+
+There isn't a direct TABLESAMPLE equivalent in MySQL. You'd typically combine RAND() with a WHERE clause. This might not give you exactly 10% but will return approximately 10% on average.
+code
+SQL
+SELECT *
+FROM Employee
+WHERE RAND() < 0.10; -- Change 0.10 to your desired percentage (e.g., 0.05 for 5%)
+Explanation:
+RAND(): Generates a random number between 0 and 1 for each row.
+WHERE RAND() < 0.10: Filters the rows, keeping only those where the random number is less than 0.10. On average, about 10% of the numbers generated by RAND() will fall into this range. This is often more efficient for large tables than ORDER BY RAND() if you only need a small percentage.
+
+
+SELECT *
+FROM Employee
+TABLESAMPLE (10 PERCENT); -- Change 10 to your desired percentage
+
+
+ABLESAMPLE (10 PERCENT): This clause tells SQL Server to select approximately 10% of the rows from the Employee table. It's important to note that TABLESAMPLE provides an approximate number of rows, not an exact count.
+Important Considerations:
+Performance:
+ORDER BY RAND() in MySQL and ORDER BY NEWID() in SQL Server can be very slow on large tables because they need to generate a random value for every row and then sort the entire dataset.
+For MySQL, WHERE RAND() < X is usually much faster for percentages or smaller subsets, as it avoids a full sort.
+For SQL Server, TABLESAMPLE is generally the most performant way to get a percentage of rows from a large table.
+True Randomness: These methods provide pseudo-randomness, which is sufficient for most application needs.
+Seed: SQL Server's NEWID() and MySQL's RAND() are non-deterministic, meaning you'll get a different set of random records each time you run the query (unless you set a seed for RAND() in MySQL, which is less common for this use case).
+
+Question 3: I have two dataframes in pyspark df and df1. They have a common column OrderHeaderID. Want to get the records in df1 that are not present in df  . Please generate the code for the same
+
+Question3 Response:
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+# Initialize Spark Session (if not already initialized)
+spark = SparkSession.builder.appName("AntiJoinExample").getOrCreate()
+
+# --- Sample DataFrames for demonstration ---
+# In your actual code, df and df1 would already be loaded from files, databases, etc.
+
+# Sample df
+data_df = [
+    (1, "ProductA", 100.0),
+    (2, "ProductB", 150.0),
+    (3, "ProductC", 200.0),
+    (5, "ProductE", 300.0)
+]
+columns_df = ["OrderHeaderID", "Item", "Price"]
+df = spark.createDataFrame(data_df, columns_df)
+print("df:")
+df.show()
+
+# Sample df1 (contains records both present and not present in df's OrderHeaderID)
+data_df1 = [
+    (1, "CustomerX", "Pending"),
+    (2, "CustomerY", "Completed"),
+    (4, "CustomerZ", "Processing"), # This one should be in the result
+    (5, "CustomerA", "Shipped"),
+    (6, "CustomerB", "Cancelled")  # This one should be in the result
+]
+columns_df1 = ["OrderHeaderID", "CustomerName", "Status"]
+df1 = spark.createDataFrame(data_df1, columns_df1)
+print("df1:")
+df1.show()
+
+# --- PySpark Code to get records in df1 not present in df ---
+
+# Method 1: Using left_anti join (Most recommended and efficient for this specific task)
+# This join type returns rows from the left DataFrame (df1)
+# that have no match in the right DataFrame (df) based on the join condition.
+df1_not_in_df = df1.join(df, on="OrderHeaderID", how="left_anti")
+
+print("Records in df1 that are NOT present in df (using left_anti join):")
+df1_not_in_df.show()
+
+# Method 2: Using filter with `isin` on a collected list (less efficient for large DFs)
+# This method collects all OrderHeaderIDs from df into a Python list
+# and then filters df1. This can be inefficient if df is very large.
+# You would usually avoid collecting large amounts of data to the driver.
+#
+# order_header_ids_in_df = df.select("OrderHeaderID").rdd.flatMap(lambda x: x).collect()
+# df1_not_in_df_isin = df1.filter(~col("OrderHeaderID").isin(order_header_ids_in_df))
+#
+# print("Records in df1 that are NOT present in df (using filter + isin - less efficient for large DFs):")
+# df1_not_in_df_isin.show()
+
+
+# Method 3: Using left_outer join and then filtering for nulls (less direct than left_anti)
+# This involves joining df1 to df, keeping all rows from df1.
+# Where there's no match in df, the columns from df will be null.
+# We then filter for these nulls.
+df1_not_in_df_left_outer = df1.join(df, on="OrderHeaderID", how="left_outer") \
+                              .filter(df["OrderHeaderID"].isNull()) \
+                              .select(df1.columns) # Select original columns from df1
+
+print("Records in df1 that are NOT present in df (using left_outer join + filter null):")
+df1_not_in_df_left_outer.show()
+
+
+# Stop Spark Session
+spark.stop()
+Explanation of the Methods:
+left_anti join (Recommended)
+How it works: This is the most direct and efficient way to achieve your goal in PySpark. A left_anti join returns all rows from the left DataFrame (df1 in this case) for which there is no matching row in the right DataFrame (df) based on the join condition (OrderHeaderID).
+Syntax: df1.join(df, on="OrderHeaderID", how="left_anti")
+Advantages: Designed specifically for this purpose, highly optimized by Spark.
+filter with isin (Less Efficient for Large DataFrames)
+How it works: First, you would extract all unique OrderHeaderIDs from df into a Python list. Then, you filter df1 to keep only the rows where OrderHeaderID is not in that list.
+Disadvantages:
+collect() brings all the OrderHeaderIDs from df to the Spark driver program's memory. If df is very large, this can lead to an OutOfMemoryError on the driver.
+The isin operation on a very large list can also be less efficient than a distributed join.
+When to use: Only consider this if df is guaranteed to be small enough to comfortably fit its OrderHeaderID column in driver memory, or if you only need to check against a pre-defined small list.
+left_outer join + filter (Less Direct, but works)
+How it works: You perform a left_outer join from df1 to df. This keeps all rows from df1, and for any row in df1 that doesn't have a match in df, the columns from df will have null values. You then filter the result to keep only the rows where the join key from df (df["OrderHeaderID"] in this case) is null. Finally, you select only the original columns from df1 to get your desired output.
+Syntax: df1.join(df, on="OrderHeaderID", how="left_outer").filter(df["OrderHeaderID"].isNull()).select(df1.columns)
+Disadvantages: It's more verbose and less semantically direct than left_anti. While Spark's optimizer might convert this to an anti-join internally, using left_anti directly is clearer and often performs optimally.
+In summary, for finding records in df1 that are not present in df based on a common OrderHeaderID column, the left_anti join is the most appropriate and recommended method in PySpark.
+
+
+Question 4:I have table in PowerBI that has Runs and MatchDate Column I want to show for every year, how many runs scored and also how many runs scored previous year. What DAX expressions I should create to achieve this.
+
+Question 4 Response:
+Okay, this is a classic year-over-year comparison scenario in Power BI using DAX. You'll need two main measures: one for the current year's runs and one for the previous year's runs.
+Let's assume your table in Power BI is named CricketData (you can replace this with your actual table name) and it has at least these two columns:
+Runs (numeric)
+MatchDate (date/datetime)
+You should also have a Date Table marked as a date table in your model, and it should be related to your CricketData table on the MatchDate column. If you don't have one, creating one is highly recommended for time intelligence functions.
+Step 1: Create a Measure for Total Runs for the Current Year
+This measure will calculate the sum of Runs for whatever year is currently in context (e.g., if you place it in a visual with Year from your Date table).
+DAX Expression:
+code
+Dax
+Total Runs = SUM(CricketData[Runs])
+Explanation:
+SUM(CricketData[Runs]): This simply sums up all the values in the Runs column within the current filter context. If you put Year on an axis, it will show the total runs for each respective year.
+Step 2: Create a Measure for Total Runs for the Previous Year
+This is where time intelligence functions come into play. We'll use CALCULATE to change the filter context to the previous year.
+DAX Expression:
+code
+Dax
+Total Runs Previous Year =
+CALCULATE(
+    [Total Runs],               -- The base measure to calculate (Total Runs for the current context)
+    SAMEPERIODLASTYEAR('Date'[Date]) -- The time intelligence function to shift the date context
+)
+Explanation:
+CALCULATE(...): This is a powerful DAX function that changes the filter context in which an expression is evaluated.
+[Total Runs]: This is the measure we created in Step 1. CALCULATE will evaluate this measure.
+SAMEPERIODLASTYEAR('Date'[Date]): This is the time intelligence function. It shifts the current date context back by exactly one year while keeping the same period (e.g., if the context is January 2023, it shifts it to January 2022). Crucially, 'Date'[Date] refers to the Date column from your separate Date Table. If you don't have a separate Date table and are using CricketData[MatchDate] directly, you could use SAMEPERIODLASTYEAR(CricketData[MatchDate]), but a dedicated Date table is best practice.
+How to Use These Measures in Power BI:
+Add a Visual: Choose a visual, such as a Table, Matrix, or Bar Chart.
+Add 'Year' to Axis/Rows: Drag the Year column (preferably from your Date Table) into the "Axis" or "Rows" field of your visual.
+Add Measures to Values: Drag both Total Runs and Total Runs Previous Year measures into the "Values" field of your visual.
+Expected Output in a Table Visual:
+Year	Total Runs	Total Runs Previous Year
+2020	1500	(Blank or 0)
+2021	2200	1500
+2022	1800	2200
+2023	2500	1800
+Highly Recommended: A Dedicated Date Table
+If you don't already have one, a dedicated Date table is crucial for robust time intelligence in Power BI. Here's a quick way to create one in DAX:
+Go to "Modeling" tab -> "New Table".
+Paste this DAX:
+code
+Dax
+Date =
+ADDCOLUMNS(
+    CALENDAR(MIN(CricketData[MatchDate]), MAX(CricketData[MatchDate])),
+    "Year", YEAR([Date]),
+    "Month", FORMAT([Date], "MMM"),
+    "MonthNum", MONTH([Date]),
+    "Quarter", "Q" & FORMAT([Date], "Q"),
+    "DayOfWeek", FORMAT([Date], "ddd"),
+    "DateKey", FORMAT([Date], "YYYYMMDD")
+)
+Mark as Date Table:
+Select your new Date table in the Fields pane.
+In the "Table tools" tab, click "Mark as date table" and select the Date column as the Date column.
+Create a Relationship:
+Go to the "Model" view.
+Drag the Date column from your Date table to the MatchDate column in your CricketData table. Ensure it's a many-to-one relationship (* to 1).
+Once you have this, always use the Date column from your Date table in your visuals and in your SAMEPERIODLASTYEAR function.
+
+
+Question 5:I have table in Tableau that has Runs and MatchDate Column I want to show for every year, how many runs scored and also how many runs scored previous year. What DAX expressions I should create to achieve this.
+Question 5 Response:
+It seems there might be a slight confusion in your question. DAX expressions are used in Power BI, not Tableau. Tableau uses its own set of functions and calculated fields to achieve similar results.
+Let's assume you meant to ask for how to do this in Tableau.
+Here's how you can achieve "Runs Scored" and "Runs Scored Previous Year" for every year in Tableau:
+Let's assume your table in Tableau is named CricketData and it has these columns:
+Runs (a measure)
+MatchDate (a date dimension)
+Step 1: Set up the Basic View
+Drag MatchDate to Columns shelf:
+Drag MatchDate from the Data pane to the Columns shelf.
+By default, Tableau will likely show YEAR(MatchDate). If not, right-click on it and select "Year" from the "Discrete" part of the menu.
+Drag Runs to Rows shelf:
+Drag Runs from the Data pane to the Rows shelf.
+Tableau will typically aggregate this as SUM(Runs). This will be your "Runs Scored" for the current year.
+At this point, you should have a bar chart or a table showing SUM(Runs) for each year.
+Step 2: Create a Calculated Field for "Runs Scored Previous Year"
+This is where you use Tableau's table calculation functions.
+Create a New Calculated Field:
+Right-click in the Data pane, or go to Analysis > Create Calculated Field...
+Name the field: Runs Scored Previous Year
+Enter the Calculation:
+code
+Tableau
+LOOKUP(SUM([Runs]), -1)
+Explanation of LOOKUP(SUM([Runs]), -1):
+SUM([Runs]): This is the value we want to look up, which is the total runs for the current year in the view.
+LOOKUP(...): This is a table calculation function that allows you to retrieve a value from a different row (or "pane") in your table based on an offset.
+-1: This is the offset. It means "look up the value from the previous row (or year, in this context) in the partition."
+Step 3: Add "Runs Scored Previous Year" to the View
+Drag the new calculated field to the Rows shelf:
+Drag Runs Scored Previous Year from the Data pane next to SUM(Runs) on the Rows shelf.
+Configure the Table Calculation:
+Right-click on the Runs Scored Previous Year pill on the Rows shelf.
+Go to Compute Using and select Table (Across) or Year (MatchDate). For this specific setup, Table (Across) should work correctly as it tells Tableau to calculate the LOOKUP function across the years displayed on the columns shelf. If you have other dimensions in your view, you might need to specify Year (MatchDate) more explicitly to ensure it's partitioning by other dimensions and computing across years.
+Expected Output (e.g., in a Table/Crosstab View):
+Year(MatchDate)	SUM(Runs) (Total Runs)	Runs Scored Previous Year
+2020	1500	
+2021	2200	1500
+2022	1800	2200
+2023	2500	1800
+(The first year will have a blank or null value for "Runs Scored Previous Year" because there's no preceding year to look back to.)
+This setup will give you the desired year-over-year comparison in Tableau!
+
+
+Question 6:I have table in Qlikview that has Runs and MatchDate Column I want to show for every year, how many runs scored and also how many runs scored previous year. What DAX expressions I should create to achieve this.
+
+Question 6 response:
+
+You're consistently asking about DAX expressions, but for different tools!
+DAX (Data Analysis Expressions) is exclusive to Microsoft products like Power BI, SQL Server Analysis Services, and Power Pivot in Excel.
+For QlikView, you use QlikView's own expression language (which is similar in concept to Excel formulas but with powerful associative capabilities).
+Let's break down how to achieve "Runs Scored" and "Runs Scored Previous Year" for every year in QlikView.
+Assume your table in QlikView is named CricketData and it has these columns:
+Runs (numeric field)
+MatchDate (date field)
+Step 1: Set up the Basic Chart/Table
+Create a Straight Table or Pivot Table: Go to Layout > New Sheet Object > Chart... and choose Straight Table or Pivot Table.
+Add Year(MatchDate) as a Dimension:
+In the "Dimensions" tab, add Year(MatchDate). This will automatically extract the year from your MatchDate field.
+Add Sum(Runs) as an Expression:
+In the "Expressions" tab, add a new expression:
+code
+Qlikview
+Sum(Runs)
+Label this expression: Total Runs
+At this point, you'll have a table showing the Total Runs for each Year(MatchDate).
+Step 2: Add an Expression for "Runs Scored Previous Year"
+This involves using QlikView's Aggr and Before (or Above) functions, which are used for inter-row calculations within chart dimensions.
+Add a New Expression:
+In the "Expressions" tab of your chart properties, add another new expression:
+code
+Qlikview
+Sum(TOTAL <MatchDate_Year> Runs)
+Wait, that's not right. QlikView's TOTAL qualifier works across the entire dataset. For previous year in a chart, we use LOOKUP or BEFORE. Let's correct this.
+The most straightforward way in a Straight Table (where Year(MatchDate) is your primary dimension) is using LOOKUP or BEFORE.
+Correct QlikView Expression for Previous Year:
+code
+Qlikview
+LOOKUP(Sum(Runs), -1, 0, Year(MatchDate))
+Label this expression: Total Runs Previous Year
+Explanation of LOOKUP(expression, offset, table_no, dimension):
+Sum(Runs): This is the value we want to look up (the total runs for a given year).
+-1: This is the offset. It means "look at the previous row relative to the current row in the chart's dimension order." In our case, since Year(MatchDate) is sorted, -1 will correctly point to the previous year.
+0: This is the table_no. 0 refers to the current chart table.
+Year(MatchDate): This is the dimension along which the lookup should occur. It ensures the lookup correctly aligns with the year dimension.
+Alternatively, using BEFORE (often simpler for the direct previous row):
+code
+Qlikview
+BEFORE(Sum(Runs))
+This is often sufficient when Year(MatchDate) is your single, sorted dimension on the left. BEFORE(Sum(Runs)) returns the Sum(Runs) value of the dimension value before the current one.
+Note on TOTAL qualifier and AGGR for more complex scenarios:
+If you had multiple dimensions and needed to ensure the "previous year" was always calculated correctly regardless of other dimensions, you might use AGGR with TOTAL and Year(MatchDate) as the grouping, then BEFORE. But for a simple yearly breakdown, LOOKUP or BEFORE as shown above is usually sufficient.
+Step 3: Result in your QlikView Table
+Your QlikView Straight Table or Pivot Table will then display something like this:
+Year(MatchDate)	Total Runs	Total Runs Previous Year
+2020	1500	
+2021	2200	1500
+2022	1800	2200
+2023	2500	1800
+(The first year will have a blank or null value for "Total Runs Previous Year" because there's no preceding year to look back to within the chart's current dimension values.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
